@@ -1,5 +1,6 @@
-table {
+#content table {
   border-spacing: 0px;
+  background-color: green;
 }
 
 #content td {
@@ -10,9 +11,11 @@ table {
 
 #content .player {
   background-color: red;
+  border-radius: 10px;
 }
 
 #content .food {
+  border-radius: 10px;
   background-color: yellow;
 }
 
