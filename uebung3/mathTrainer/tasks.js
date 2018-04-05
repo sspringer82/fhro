@@ -20,21 +20,19 @@ module.exports = class Task {
   getOperands(level) {
     switch (level) {
       case 1:
-        return [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+        return [Task.randomNumber(10), Task.randomNumber(100)];
         break;
       case 2:
-        return Task.shuffle([
-          Math.floor(Math.random() * 10),
-          Math.floor(Math.random() * 100),
-        ]);
+        return Task.shuffle([Task.randomNumber(10), Task.randomNumber(100)]);
         break;
       case 3:
-        return [
-          Math.floor(Math.random() * 100),
-          Math.floor(Math.random() * 100),
-        ];
+        return [Task.randomNumber(100), Task.randomNumber(100)];
         break;
     }
+  }
+
+  static randomNumber(multiplier) {
+    return Math.floor(Math.random() * multiplier);
   }
 
   static shuffle(a) {
