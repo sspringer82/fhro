@@ -1,12 +1,11 @@
 module.exports = class Task {
-  constructor(operator) {
+  constructor(operator, level) {
+    const operands = this.getOperands(level);
+    this.operand1 = operands[0];
+    this.operand2 = operands[1];
+
     if (operator === '/') {
-      this.operand1 = Math.floor(Math.random() * 10);
-      this.operand2 = Math.floor(Math.random() * 10);
       this.operand1 = this.operand1 * this.operand2;
-    } else {
-      this.operand1 = Math.floor(Math.random() * 10);
-      this.operand2 = Math.floor(Math.random() * 10);
     }
     this.operator = operator;
     const obj = {
@@ -16,6 +15,34 @@ module.exports = class Task {
       '/': this.operand1 / this.operand2,
     };
     this.result = obj[operator];
+  }
+
+  getOperands(level) {
+    switch (level) {
+      case 1:
+        return [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+        break;
+      case 2:
+        return Task.shuffle([
+          Math.floor(Math.random() * 10),
+          Math.floor(Math.random() * 100),
+        ]);
+        break;
+      case 3:
+        return [
+          Math.floor(Math.random() * 100),
+          Math.floor(Math.random() * 100),
+        ];
+        break;
+    }
+  }
+
+  static shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 
   toString() {

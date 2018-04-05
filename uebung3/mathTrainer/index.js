@@ -7,13 +7,13 @@ const rl = readline.createInterface({
 });
 
 //const task = new Task('-');
-
+const level = 2;
 const operands = ['+', '-', '*', '/'];
 
 (async () => {
   for (let i = 0; i < operands.length; i++) {
     for (let j = 0; j < 4; j++) {
-      const task = new Task(operands[i]);
+      const task = new Task(operands[i], level);
       await task.ask(rl);
     }
   }
