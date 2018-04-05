@@ -6,7 +6,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const task = new Task();
+const task = new Task('-');
 
 rl.question(task.toString(), answer => {
   debugger;
