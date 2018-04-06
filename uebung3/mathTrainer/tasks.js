@@ -20,7 +20,7 @@ module.exports = class Task {
   getOperands(level) {
     switch (level) {
       case 1:
-        return [Task.randomNumber(10), Task.randomNumber(100)];
+        return [Task.randomNumber(10), Task.randomNumber(10)];
         break;
       case 2:
         return Task.shuffle([Task.randomNumber(10), Task.randomNumber(100)]);
