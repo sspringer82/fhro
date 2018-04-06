@@ -18,11 +18,16 @@ const rl = readline.createInterface({
 const operands = ['+', '-', '*', '/'];
 
 (async () => {
-  for (let i = 0; i < operands.length; i++) {
-    for (let j = 0; j < program.number; j++) {
-      const task = new Task(operands[i], program.level);
-      await task.ask(rl);
+  try {
+    for (let i = 0; i < operands.length; i++) {
+      for (let j = 0; j < program.number; j++) {
+        const task = new Task(operands[i], program.level);
+        await task.ask(rl);
+      }
     }
+  } catch (e) {
+    console.log(e);
+  } finally {
+    rl.close();
   }
-  rl.close();
 })();
