@@ -21,7 +21,7 @@ const operands = ['+', '-', '*', '/'];
   try {
     for (let i = 0; i < operands.length; i++) {
       for (let j = 0; j < program.number; j++) {
-        const task = new Task(operands[i], program.level);
+        const task = new Task(operands[i], parseInt(program.level, 10));
         await task.ask(rl);
       }
     }
