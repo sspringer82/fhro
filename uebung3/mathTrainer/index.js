@@ -1,19 +1,26 @@
 const Task = require('./tasks');
 const readline = require('readline');
 
+var program = require('commander');
+
+program
+  .version('0.1.0')
+
+  .option('-l, --level [level]', 'How hard should it be', 1)
+  .option('-n, --number [amount]', 'How many tasks per category', 4)
+  .parse(process.argv);
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-//const task = new Task('-');
-const level = 2;
 const operands = ['+', '-', '*', '/'];
 
 (async () => {
   for (let i = 0; i < operands.length; i++) {
-    for (let j = 0; j < 4; j++) {
-      const task = new Task(operands[i], level);
+    for (let j = 0; j < program.number; j++) {
+      const task = new Task(operands[i], program.level);
       await task.ask(rl);
     }
   }
