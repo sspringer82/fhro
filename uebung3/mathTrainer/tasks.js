@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 module.exports = class Task {
   constructor(operator, level) {
     const operands = this.getOperands(level);
@@ -51,9 +53,9 @@ module.exports = class Task {
     return new Promise((resolve, reject) => {
       rl.question(this.toString(), answer => {
         if (parseInt(answer, 10) === this.result) {
-          console.log('richtig!');
+          console.log(chalk.bold.green('Correct!'));
         } else {
-          console.log('falsch');
+          console.log(chalk.bold.red('Wrong!'));
         }
         resolve(true);
       });
