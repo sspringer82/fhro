@@ -1,5 +1,6 @@
 const readline = require('readline');
 const program = require('commander');
+const chalk = require('chalk');
 const Task = require('./tasks');
 const calculateTiming = require('./timing');
 
@@ -18,13 +19,18 @@ const rl = readline.createInterface({
 const operands = ['+', '-', '*', '/'];
 
 const start = new Date();
+let result = {
+  count: 0,
+  correct: 0,
+  wrong: 0,
+};
 
 (async () => {
   try {
     for (let i = 0; i < operands.length; i++) {
       for (let j = 0; j < program.number; j++) {
         const task = new Task(operands[i], parseInt(program.level, 10));
-        await task.ask(rl);
+        result = await task.ask(rl, result);
       }
     }
   } catch (e) {
@@ -32,6 +38,11 @@ const start = new Date();
   } finally {
     const end = new Date();
     console.log('It took you: ' + calculateTiming(start, end));
+    console.log(
+      chalk.green('correct: ' + result.correct),
+      chalk.red(' wrong: ' + result.wrong),
+      ' Total: ' + result.count,
+    );
     rl.close();
   }
 })();

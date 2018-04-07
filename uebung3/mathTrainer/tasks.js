@@ -49,15 +49,18 @@ module.exports = class Task {
     return `${this.operand1} ${this.operator} ${this.operand2} = `;
   }
 
-  ask(rl) {
+  ask(rl, result) {
     return new Promise((resolve, reject) => {
+      result.count += 1;
       rl.question(this.toString(), answer => {
         if (parseInt(answer, 10) === this.result) {
+          result.correct += 1;
           console.log(chalk.bold.green('Correct!'));
         } else {
+          result.wrong += 1;
           console.log(chalk.bold.red('Wrong!'));
         }
-        resolve(true);
+        resolve(result);
       });
     });
   }
