@@ -34,7 +34,7 @@
             <%= recipes[i].level %>
           </td>
           <td>
-            <a href="<%= baseUrl %>/delete/<%= recipes[i].id %>">löschen</a>
+            <a onClick="return confirm('sicher?');" href="<%= baseUrl %>/delete/<%= recipes[i].id %>">löschen</a>
           </td>
         </tr>
         <% } %>
