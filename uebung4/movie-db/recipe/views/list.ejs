@@ -33,6 +33,9 @@
           <td>
             <%= recipes[i].level %>
           </td>
+          <td>
+            <a href="<%= baseUrl %>/delete/<%= recipes[i].id %>">löschen</a>
+          </td>
         </tr>
         <% } %>
     </tbody>
