@@ -15,6 +15,7 @@
   "dependencies": {
     "csv-db": "^0.2.1",
     "ejs": "^2.5.8",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
   }
 }
