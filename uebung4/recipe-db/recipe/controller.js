@@ -27,4 +27,9 @@ module.exports = class Controller {
       },
     );
   }
+
+  form(req, res) {
+    const recipe = { id: null, title: null };
+    res.render(__dirname + '/views/form', { baseUrl: req.baseUrl, recipe });
+  }
 };

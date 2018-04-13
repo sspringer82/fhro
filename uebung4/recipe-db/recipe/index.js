@@ -10,5 +10,6 @@ const controller = new Controller(recipes);
 
 router.get('/', (req, res) => controller.getAll(req, res));
 router.get('/delete/:id', (req, res) => controller.delete(req, res));
+router.get('/form/:id?', (req, res) => controller.form(req, res));
 
 module.exports = router;

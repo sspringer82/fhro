@@ -10,8 +10,15 @@
 
 <body>
   <form action="<%= baseUrl %>/save" method="post">
-    <input type="hidden" id="id" name="id" value="<%= recipe.id %>" /> Title:
-
+    <input type="hidden" id="id" name="id" value="<%= recipe.id %>" />
+    <div>
+      <label for="title">Bezeichnung:</label>
+      <input type="text" name="title" id="title" value="<%= recipe.title %>">
+    </div>
+    <div>
+      <button type="submit">Speichern</button>
+      <button type="reset" onclick="window.location.href=<%= baseUrl %>">Abbrechen</button>
+    </div>
   </form>
 </body>
 
