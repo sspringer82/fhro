@@ -32,4 +32,8 @@ module.exports = class Controller {
     const recipe = { id: null, title: null };
     res.render(__dirname + '/views/form', { baseUrl: req.baseUrl, recipe });
   }
+
+  save(req, res) {
+    res.redirect(req.baseUrl);
+  }
 };
