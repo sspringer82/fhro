@@ -13,6 +13,7 @@
     "nodemon": "^1.17.3"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "csv-db": "^0.2.1",
     "ejs": "^2.5.8",
     "express": "^4.16.3",
