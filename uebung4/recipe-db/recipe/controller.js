@@ -34,6 +34,11 @@ module.exports = class Controller {
   }
 
   save(req, res) {
+    if (req.body.id) {
+      // update
+    } else {
+      // create
+    }
     res.redirect(req.baseUrl);
   }
 };
