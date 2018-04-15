@@ -33,11 +33,11 @@ module.exports = class Controller {
     res.render(__dirname + '/views/form', { baseUrl: req.baseUrl, recipe });
   }
 
-  save(req, res) {
+  async save(req, res) {
     if (req.body.id) {
-      // update
+      csvDb.update(req.body, req.body.id);
     } else {
-      // create
+      await csvDb.insert(user);
     }
     res.redirect(req.baseUrl);
   }
