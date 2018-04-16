@@ -29,8 +29,15 @@ module.exports = class Controller {
   }
 
   form(req, res) {
-    const recipe = { id: null, title: null };
-    res.render(__dirname + '/views/form', { baseUrl: req.baseUrl, recipe });
+    let promise;
+    if (req.params.id) {
+      promise = this.db.get(req.params.id);
+    } else {
+      promise = Promise.resolve({ id: null, title: null });
+    }
+    promise.then(recipe =>
+      res.render(__dirname + '/views/form', { baseUrl: req.baseUrl, recipe }),
+    );
   }
 
   async save(req, res) {
