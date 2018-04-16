@@ -35,9 +35,9 @@ module.exports = class Controller {
 
   async save(req, res) {
     if (req.body.id) {
-      csvDb.update(req.body, req.body.id);
+      this.db.update(req.body, req.body.id);
     } else {
-      await csvDb.insert(user);
+      await this.db.insert(req.body);
     }
     res.redirect(req.baseUrl);
   }

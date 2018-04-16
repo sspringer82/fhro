@@ -36,10 +36,14 @@
           <td>
             <a onClick="return confirm('sicher?');" href="<%= baseUrl %>/delete/<%= recipes[i].id %>">löschen</a>
           </td>
+          <td>
+            <a href="<%= baseUrl %>/form/<%= recipes[i].id %>">bearbeiten</a>
+          </td>
         </tr>
         <% } %>
     </tbody>
   </table>
+  <a href="<%= baseUrl %>/form">neu</a>
 </body>
 
 </html>
