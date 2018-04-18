@@ -5,4 +5,7 @@ module.exports = {
   getAll() {
     return csvDb.get();
   },
+  get(id) {
+    return csvDb.get(id);
+  },
 };
