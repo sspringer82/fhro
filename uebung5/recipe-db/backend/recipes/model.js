@@ -1,5 +1,5 @@
 const CsvDb = require('csv-db');
-const csvDb = new CsvDb('input.csv', ['id', 'username', 'password']);
+const csvDb = new CsvDb('db/db.csv');
 
 module.exports = {
   getAll() {
@@ -7,5 +7,14 @@ module.exports = {
   },
   get(id) {
     return csvDb.get(id);
+  },
+  create(data) {
+    return csvDb.insert(data);
+  },
+  update(data, id) {
+    return csvDb.update(data, id);
+  },
+  delete(id) {
+    return csvDb.delete(id);
   },
 };

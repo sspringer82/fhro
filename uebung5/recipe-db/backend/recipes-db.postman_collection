@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "recipes-db",
+		"_postman_id": "b6605587-29d7-8b28-da36-e04707584b10",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"url": "http://localhost:8080/recipes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get one",
+			"request": {
+				"url": "http://localhost:8080/recipes/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"url": "http://localhost:8080/recipes",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Schnitzel\",\n\t\"ingredients\": \"200g Fleisch -- 1 Ei -- 50g Semmelbrösel\",\n\t\"instructions\": \"Einfach machen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"url": "http://localhost:8080/recipes/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Schnitzel\",\n\t\"ingredients\": \"200g Fleisch -- 1 Ei -- 50g Semmelbrösel\",\n\t\"instructions\": \"Einfach machen und schmecken lassen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"url": "http://localhost:8080/recipes/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
