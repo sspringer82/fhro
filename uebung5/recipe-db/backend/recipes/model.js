@@ -9,6 +9,7 @@ module.exports = {
     return csvDb.get(id);
   },
   create(data) {
+    data.created = Date.now();
     return csvDb.insert(data);
   },
   update(data, id) {

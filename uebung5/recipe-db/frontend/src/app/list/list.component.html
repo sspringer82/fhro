@@ -1,3 +1,18 @@
-<div *ngFor="let recipe of recipes">
-  {{recipe.title}}
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Titel
+      </th>
+      <th>
+        Zutaten
+      </th>
+      <th>
+        Erstellt
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="list-item" *ngFor="let recipe of recipes" [recipe]="recipe"></tr>
+  </tbody>
+</table>

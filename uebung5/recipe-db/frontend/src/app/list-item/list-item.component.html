@@ -1,3 +1,9 @@
-<p>
-  list-item works!
-</p>
+<th>
+  {{recipe.title}}
+</th>
+<th>
+  {{recipe.ingredients.split('--').slice(0, 3)}}
+</th>
+<th>
+  {{recipe.created | date: 'short'}}
+</th>
