@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: '.list-item',
@@ -8,7 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListItemComponent implements OnInit {
   @Input() public recipe;
 
+  @Output() detailSelect = new EventEmitter();
+
   constructor() {}
 
   ngOnInit() {}
+
+  onSelect() {
+    this.detailSelect.emit(this.recipe);
+  }
 }

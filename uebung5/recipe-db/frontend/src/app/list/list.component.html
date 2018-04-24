@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="!detail">
   <thead>
     <tr>
       <th>
@@ -13,6 +13,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="list-item" *ngFor="let recipe of recipes" [recipe]="recipe"></tr>
+    <tr class="list-item" *ngFor="let recipe of recipes" [recipe]="recipe" (detailSelect)="handleDetailSelect($event)"></tr>
   </tbody>
 </table>
+
+<app-detail *ngIf="detail" [recipe]="detail"></app-detail>

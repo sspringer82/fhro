@@ -1,9 +1,9 @@
-<th>
+<td (click)="onSelect()">
   {{recipe.title}}
-</th>
-<th>
-  {{recipe.ingredients.split('--').slice(0, 3)}}
-</th>
-<th>
+</td>
+<td>
+  {{recipe.ingredients.split('--').join(', ')}}
+</td>
+<td>
   {{recipe.created | date: 'short'}}
-</th>
+</td>
