@@ -10,4 +10,8 @@ export class RecipeService {
   public getAll(): Observable<Recipe[]> {
     return this.http.get('/recipes') as Observable<Recipe[]>;
   }
+
+  public delete(recipe: Recipe) {
+    return this.http.delete('/recipes/' + recipe.id);
+  }
 }

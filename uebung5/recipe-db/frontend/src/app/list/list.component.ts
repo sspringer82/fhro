@@ -17,6 +17,10 @@ export class ListComponent implements OnInit {
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit() {
+    this.fetchAll();
+  }
+
+  fetchAll() {
     this.recipeService
       .getAll()
       .pipe(
@@ -35,5 +39,11 @@ export class ListComponent implements OnInit {
 
   handleDetailSelect(recipe: Recipe) {
     this.detail = recipe;
+  }
+
+  handleDelete(recipe: Recipe) {
+    this.recipeService.delete(recipe).subscribe(() => {
+      this.fetchAll();
+    });
   }
 }

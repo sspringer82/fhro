@@ -9,6 +9,7 @@ export class ListItemComponent implements OnInit {
   @Input() public recipe;
 
   @Output() detailSelect = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
   constructor() {}
 
@@ -16,5 +17,9 @@ export class ListItemComponent implements OnInit {
 
   onSelect() {
     this.detailSelect.emit(this.recipe);
+  }
+
+  onDelete() {
+    this.delete.emit(this.recipe);
   }
 }
