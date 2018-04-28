@@ -1,1 +1,6 @@
-<app-list></app-list>
+<app-form *ngIf="isShowForm"></app-form>
+
+<div *ngIf="!isShowForm">
+  <app-list></app-list>
+  <button (click)="showForm()">Neu</button>
+</div>
