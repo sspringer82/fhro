@@ -1,3 +1,15 @@
-<p>
-  form works!
-</p>
+<form>
+  <div>
+    <label for="title">Titel</label>
+    <input type="text" name="title" id="title" [(ngModel)]="recipe.title">
+  </div>
+  <div>
+    <label for="ingredients">Zutaten</label>
+    <input type="text" name="ingredients" id="ingredients" [(ngModel)]="recipe.ingredients">
+  </div>
+  <div>
+    <label for="instructions">Anleitung</label>
+    <input type="text" name="instructions" id="instructions" [(ngModel)]=" recipe.instructions">
+  </div>
+  <button type="submit" (click)="save()">Speichern</button>
+</form>
