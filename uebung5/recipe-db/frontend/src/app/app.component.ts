@@ -11,4 +11,8 @@ export class AppComponent {
   showForm() {
     this.isShowForm = true;
   }
+
+  hideForm() {
+    this.isShowForm = false;
+  }
 }

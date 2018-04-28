@@ -1,4 +1,4 @@
-<app-form *ngIf="isShowForm"></app-form>
+<app-form *ngIf="isShowForm" (saved)="hideForm()"></app-form>
 
 <div *ngIf="!isShowForm">
   <app-list></app-list>
