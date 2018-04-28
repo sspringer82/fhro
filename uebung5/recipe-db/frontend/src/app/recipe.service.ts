@@ -14,4 +14,10 @@ export class RecipeService {
   public delete(recipe: Recipe) {
     return this.http.delete('/recipes/' + recipe.id);
   }
+
+  public save(recipe: Recipe) {
+    if (!recipe.id) {
+      return this.http.post('/recipes', recipe);
+    }
+  }
 }
