@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "backend": "json-server --watch movie-db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
