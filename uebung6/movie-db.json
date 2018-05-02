@@ -1,0 +1,16 @@
+{
+  "movie": [
+    {
+      "id": 1,
+      "title": "Iron Man",
+      "year": 2008,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "Captain America",
+      "year": 2011,
+      "rating": 4
+    }
+  ]
+}
