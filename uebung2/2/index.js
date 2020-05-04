@@ -3,7 +3,7 @@ function evenWords(input) {
 
   const splitInput = cleanedInput.split(' ');
 
-  const result = splitInput.map(word => {
+  const result = splitInput.map((word) => {
     if (word.length % 2 !== 0) {
       return word + word.substr(-1);
     }
