@@ -8,5 +8,5 @@ function isUpperCase(str) {
 }
 
 function isUpperCase2(str) {
-    return this.toString() === this.toUpperCase();
+  return str === str.toUpperCase();
 }
