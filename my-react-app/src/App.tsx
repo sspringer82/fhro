@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Lights from './Lights';
 import Counter from './Couter';
+import User from './User';
 
 interface Props {
   name?: string;
@@ -9,7 +10,6 @@ interface Props {
 
 const App: React.FC = () => {
   const [show, setShow] = useState(true);
-
   const [count, setCount] = useState(0);
   return (
     <div>
@@ -22,10 +22,11 @@ const App: React.FC = () => {
       >
         click me
       </button>
-
       <hr />
       {show && <Counter />}
       <button onClick={() => setShow((prevshow) => !prevshow)}>toggle</button>
+      <hr />
+      <User />
     </div>
   );
 };
