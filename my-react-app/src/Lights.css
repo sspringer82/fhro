@@ -1,0 +1,30 @@
+.container {
+  margin: 0 auto;
+}
+
+.lights {
+  background-color: black;
+  width: 62px;
+  padding: 1px 0;
+  margin: 10px auto;
+}
+
+.lights > div {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  margin: 10px;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}

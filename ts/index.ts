@@ -1,44 +1,7 @@
-class U {
-  constructor(public firstname: string, public lastname: string) {}
+import express from 'express';
 
-  static lastname = 'Meier';
+const app = express();
 
-  public getFullname() {
-    return `${this.firstname} ${this.lastname}`;
-  }
-}
+app.get('/', (req, res) => res.json({ name: 'Klaus' }));
 
-const u = new U('Günther', U.lastname);
-
-console.log(u.getFullname());
-
-interface User {
-  id: number;
-  firstname: string;
-  lastname: string;
-  age?: number;
-}
-
-function greet(u: User) {
-  // function greet(u: { firstname: string }) {
-  console.log('Hallo ', u.firstname);
-}
-
-// greet({ firstname: 'Klaus', lastname: 'Müller', age: 42 });
-// greet(u);
-
-class Collection<T extends { id: number }> {
-  constructor(public items: T[]) {}
-
-  addItem(item: T) {
-    this.items.push(item);
-  }
-
-  getItem(id: number): T | undefined {
-    return this.items.find((item) => item.id === id);
-  }
-}
-
-const userCollection = new Collection<User>([
-  { id: 1, firstname: 'Klaus', lastname: 'MÜller' },
-]);
+app.listen(8080);
