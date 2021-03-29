@@ -15,10 +15,11 @@ function coinCombo(v) {
     result: [],
   };
 
+  debugger;
   for (var i of [50, 20, 10, 5, 2, 1]) {
     obj = func(obj, i);
   }
 
   return obj.result;
 }
-console.log(coinCombo(15));
+console.log(coinCombo(75));

@@ -1,11 +1,11 @@
 'use strict';
 
 function greatestDiff(arr) {
-  let diff = arr.reduce(
+  const diff = arr.reduce(
     (prev, curr) => {
-      let numbers = curr.split('-').map(v => parseInt(v, 10));
+      const numbers = curr.split('-').map((v) => parseInt(v, 10));
 
-      let diff = Math.abs(numbers[1] - numbers[0]);
+      const diff = Math.abs(numbers[1] - numbers[0]);
 
       return diff > prev.diff ? { value: curr, diff: diff } : prev;
     },
@@ -18,12 +18,12 @@ let gd = greatestDiff(['52-23', '1-100']);
 console.log(gd);
 
 function greatestDiff2(arr) {
-  var greatest = 0;
-  var val = '';
+  const greatest = 0;
+  const val = '';
 
-  for (var i = 0; i < arr.length; i++) {
-    var numbers = arr[i].split('-');
-    var diff = Math.abs(numbers[0] - numbers[1]);
+  for (let i = 0; i < arr.length; i++) {
+    const numbers = arr[i].split('-');
+    const diff = Math.abs(numbers[0] - numbers[1]);
     if (diff > greatest) {
       greatest = diff;
       val = arr[i];
@@ -36,7 +36,7 @@ console.log(greatestDiff2(['52-23', '1-100']));
 
 function greatestDiff3(arr) {
   return arr
-    .map(e => {
+    .map((e) => {
       let numbers = e.split('-');
       return { val: e, diff: Math.abs(numbers[0] - numbers[1]) };
     })

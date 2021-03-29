@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Server side rendered</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Hobbies</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% persons.forEach((person) => { %>
+        <tr>
+          <td><%= person.firstname %></td>
+          <td><%= person.lastname %></td>
+          <td><%= person.hobbies %></td>
+          <td>
+            <button>edit</button>
+            <button>delete</button>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>
