@@ -2,14 +2,20 @@
   "name": "JSSoSe21",
   "version": "1.0.0",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preinstall": "",
+    "install": "",
+    "postinstall": "",
+    "start": "node index.mjs",
+    "build": "node index.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.17.1",
     "lodash": "^4.17.21"
   }
 }
