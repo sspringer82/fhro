@@ -1,0 +1,16 @@
+{
+  "person": [
+    {
+      "id": 1,
+      "firstname": "Klaus",
+      "lastname": "Müller",
+      "hobbies": "Lesen, Schreiben, Rechnen"
+    },
+    {
+      "id": 2,
+      "firstname": "Petra",
+      "lastname": "Müller",
+      "hobbies": "Lesen, Schreiben, Rechnen"
+    }
+  ]
+}
