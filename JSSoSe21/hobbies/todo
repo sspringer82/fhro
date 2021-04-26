@@ -1,6 +1,8 @@
-- Persistenz
-
 - Validierung
 - Relation Person vs. Hobby
 - ORM
 - Login
+
+FE: 
+- TypeScript?
+- Create/Update
