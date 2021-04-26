@@ -1,4 +1,7 @@
+import sqlite3 from 'sqlite3';
+
 export default {
+  db: new sqlite3.Database('./data/data.sqlite3'),
   persons: [
     {
       id: 1,
@@ -9,31 +12,76 @@ export default {
   ],
 
   async getOne(id) {
-    return this.persons.find((person) => person.id === id);
+    return new Promise((resolve, reject) => {
+      this.db.get('SELECT * FROM Person WHERE id = ?', id, (error, data) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
+    });
   },
 
-  async getAll() {
-    return this.persons;
+  getAll() {
+    return new Promise((resolve, reject) => {
+      this.db.all('SELECT * FROM Person', (error, data) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
+    });
   },
 
-  async create(person) {
-    const id = Math.max(...this.persons.map((person) => person.id)) + 1;
-    person.id = id;
-    this.persons.push(person);
-    return person;
+  create(person) {
+    const query =
+      'INSERT INTO Person (firstname, lastname, hobbies) VALUES (?, ?, ?)';
+    return new Promise((resolve, reject) => {
+      this.db.run(
+        query,
+        [person.firstname, person.lastname, person.hobbies],
+        function (error) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve({ ...person, id: this.lastID });
+          }
+        },
+      );
+    });
   },
 
-  async update(person) {
-    const index = this.persons.findIndex(
-      (existingPersons) => existingPersons.id === person.id,
-    );
-    this.persons[index] = person;
-    return person;
+  update(person) {
+    const query =
+      'UPDATE Person SET firstname = ?, lastname = ?, hobbies = ? WHERE id = ?';
+    return new Promise((resolve, reject) => {
+      this.db.run(
+        query,
+        [person.firstname, person.lastname, person.hobbies, person.id],
+        function (error) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(person);
+          }
+        },
+      );
+    });
   },
 
   async delete(id) {
-    const deletedPerson = this.persons.find((person) => person.id === id);
-    this.persons = this.persons.filter((person) => person.id !== id);
-    return deletedPerson;
+    const person = await this.getOne(id);
+    const query = 'DELETE FROM Person WHERE id = ?';
+    return new Promise((resolve, reject) => {
+      this.db.run(query, person.id, function (error) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(person);
+        }
+      });
+    });
   },
 };
