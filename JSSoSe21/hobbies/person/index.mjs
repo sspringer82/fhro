@@ -19,8 +19,14 @@ router.post('/', async (req, res) => {
   res.json(newPerson);
 });
 
-router.put('/:id', async (req, res) => {});
+router.put('/:id', async (req, res) => {
+  const updatedPerson = await personService.update(req.body);
+  res.json(updatedPerson);
+});
 
-router.delete('/:id', async (req, res) => {});
+router.delete('/:id', async (req, res) => {
+  const result = await personService.delete(parseInt(req.params.id, 10));
+  res.json(result);
+});
 
 export default router;

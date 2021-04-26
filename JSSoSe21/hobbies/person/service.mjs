@@ -22,4 +22,18 @@ export default {
     this.persons.push(person);
     return person;
   },
+
+  async update(person) {
+    const index = this.persons.findIndex(
+      (existingPersons) => existingPersons.id === person.id,
+    );
+    this.persons[index] = person;
+    return person;
+  },
+
+  async delete(id) {
+    const deletedPerson = this.persons.find((person) => person.id === id);
+    this.persons = this.persons.filter((person) => person.id !== id);
+    return deletedPerson;
+  },
 };

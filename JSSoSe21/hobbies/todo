@@ -1,6 +1,6 @@
-- CRUD fertig machen (update + delete)
-- Validierung
 - Persistenz
+
+- Validierung
 - Relation Person vs. Hobby
 - ORM
 - Login
