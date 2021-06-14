@@ -1,4 +1,2 @@
-- swagger api
-- Relationen
-- ORM
+- ORM (sequelize)
 - SSR mit React
