@@ -11,19 +11,29 @@ router.get('/:id', async (req, res) => {
   res.json(person);
 });
 
+/**
+ * @openapi
+ * /:
+ *   get:
+ *     description: Get all persons
+ *     responses:
+ *       200:
+ *         description: returns all persons.
+ */
 router.get('/', async (req, res) => {
   const persons = await personService.getAll();
   res.json(persons);
 });
 
-// {
-//   id: Number,
-//   firstname: String, // min 1 max 15
-//   lastname: String, // min 1 max 15
-//   username: String, // min 1 max 8
-//   password: string // min 5 max 16
-//   hobbies: string 'Lesen, Malen'
-// }
+/**
+ * @openapi
+ * /:
+ *   post:
+ *     description: create new Person
+ *     responses:
+ *       200:
+ *         description: person successfully generated
+ */
 router.post('/', validator, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

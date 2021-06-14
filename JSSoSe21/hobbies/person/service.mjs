@@ -26,23 +26,25 @@ export default {
   getAll() {
     return new Promise((resolve, reject) => {
       this.db.all(
-        `SELECT p.id, p.firstname, p.lastname, p.username, p.password, h.title as hobby FROM Person AS p
-           LEFT JOIN Person_Hobby AS ph ON p.id = ph.personId
-           LEFT JOIN Hobby AS h ON ph.hobbyId = h.id;`,
+        'SELECT firstname, lastname, (select GROUP_CONCAT(title, ", ") FROM Hobby AS h LEFT JOIN Person_Hobby as ph ON h.id = ph.hobbyId WHERE ph.personId = p.id) as hobby FROM Person AS p',
+        // `SELECT p.id, p.firstname, p.lastname, p.username, p.password, h.title as hobby FROM Person AS p
+        //    LEFT JOIN Person_Hobby AS ph ON p.id = ph.personId
+        //    LEFT JOIN Hobby AS h ON ph.hobbyId = h.id;`,
         (error, data) => {
           if (error) {
             reject(error);
           } else {
-            const result = [];
-            data.forEach((person) => {
-              const pIndex = result.findIndex((p) => p.id === person.id);
-              if (pIndex >= 0) {
-                result[pIndex].hobby += ', ' + person.hobby;
-              } else {
-                result.push(person);
-              }
-            });
-            resolve(result);
+            resolve(data);
+            // const result = [];
+            // data.forEach((person) => {
+            //   const pIndex = result.findIndex((p) => p.id === person.id);
+            //   if (pIndex >= 0) {
+            //     result[pIndex].hobby += ', ' + person.hobby;
+            //   } else {
+            //     result.push(person);
+            //   }
+            // });
+            // resolve(result);
           }
         },
       );

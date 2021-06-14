@@ -7,9 +7,25 @@ import { auth } from './auth.mjs';
 import jwt from 'jsonwebtoken';
 import expressJwT from 'express-jwt';
 import compression from 'compression';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
 const app = express();
 // app.set('view engine', 'ejs');
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Hobby database',
+      version: '1.0.0',
+    },
+  },
+  apis: ['./person/index.mjs'],
+};
+
+const openapiSpecification = swaggerJSDoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 app.use(compression({ level: 4 }));
 app.use((req, res, next) => {
