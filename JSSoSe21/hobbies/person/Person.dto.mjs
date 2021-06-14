@@ -1,4 +1,4 @@
-export default class Person {
+export default class PersonDTO {
   constructor(id, firstname, lastname, hobbies) {
     this.id = id;
     this.firstname = firstname;

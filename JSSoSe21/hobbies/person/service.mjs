@@ -26,14 +26,23 @@ export default {
   getAll() {
     return new Promise((resolve, reject) => {
       this.db.all(
-        `SELECT * FROM Person AS p 
-           LEFT JOIN Person_Hobby AS ph ON p.id = ph.personId 
+        `SELECT p.id, p.firstname, p.lastname, p.username, p.password, h.title as hobby FROM Person AS p
+           LEFT JOIN Person_Hobby AS ph ON p.id = ph.personId
            LEFT JOIN Hobby AS h ON ph.hobbyId = h.id;`,
         (error, data) => {
           if (error) {
             reject(error);
           } else {
-            resolve(data);
+            const result = [];
+            data.forEach((person) => {
+              const pIndex = result.findIndex((p) => p.id === person.id);
+              if (pIndex >= 0) {
+                result[pIndex].hobby += ', ' + person.hobby;
+              } else {
+                result.push(person);
+              }
+            });
+            resolve(result);
           }
         },
       );

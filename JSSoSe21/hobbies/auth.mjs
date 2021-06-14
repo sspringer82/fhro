@@ -4,6 +4,9 @@ import BearerStrategy from 'passport-http-bearer';
 import GoogleStrategy from 'passport-google-oauth20';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
+import sqlite3 from 'sqlite3';
+
+const db = new sqlite3.Database('./data/data.sqlite3');
 
 export function auth(app) {
   app.use(passport.initialize());
@@ -11,11 +14,17 @@ export function auth(app) {
 
   passport.use(
     new LocalStrategy(async function (username, password, done) {
-      if ((username = 'admin' && password === 'geheim')) {
-        done(null, { username: 'admin', id: 1 });
-      } else {
-        return done(null, false, { message: 'Wrong Credentials.' });
-      }
+      db.get(
+        'SELECT id, firstname, lastname FROM Person WHERE username = ? AND password = ?',
+        [username, password],
+        (error, data) => {
+          if (error) {
+            done(null, false, { message: 'Wrong Credentials.' });
+          } else {
+            done(null, data);
+          }
+        },
+      );
     }),
   );
 
@@ -36,8 +45,7 @@ export function auth(app) {
   });
 
   passport.deserializeUser(function (id, done) {
+    // @todo fix later
     done(null, { id: 1, username: 'admin' });
   });
-
-  // here starts jwt
 }
