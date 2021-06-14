@@ -24,23 +24,19 @@ export default {
   },
 
   getAll() {
-    const data = new Array(500).fill({
-      id: 1,
-      firstname: 'Klaus',
-      lastname: 'Müller',
-      hobbies: 'Lesen, Schreiben, Rechnen',
-    });
-
-    return Promise.resolve(data);
-
     return new Promise((resolve, reject) => {
-      this.db.all('SELECT * FROM Person', (error, data) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(data);
-        }
-      });
+      this.db.all(
+        `SELECT * FROM Person AS p 
+           LEFT JOIN Person_Hobby AS ph ON p.id = ph.personId 
+           LEFT JOIN Hobby AS h ON ph.hobbyId = h.id;`,
+        (error, data) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(data);
+          }
+        },
+      );
     });
   },
 
