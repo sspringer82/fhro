@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const PersonItem = ({ person, onDelete }) => {
   return (
     <li>
-      {`${person.firstname} ${person.lastname} - ${person.hobbies}`}
+      <Link
+        to={`/detail/${person.id}`}
+      >{`${person.firstname} ${person.lastname} - ${person.hobbies}`}</Link>
       <button
         onClick={() => {
           onDelete(person.id);

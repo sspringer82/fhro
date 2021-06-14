@@ -5,10 +5,16 @@ import passport from 'passport';
 import session from 'express-session';
 import { auth } from './auth.mjs';
 import jwt from 'jsonwebtoken';
+import compression from 'compression';
 
 const app = express();
 // app.set('view engine', 'ejs');
 
+app.use(compression({ level: 4 }));
+app.use((req, res, next) => {
+  res.header('Cache-Control', 'max-age=2592000000');
+  next();
+});
 app.use(express.json());
 app.use(session({ secret: 'keyboard cat' }));
 
@@ -24,7 +30,27 @@ app.post('/login', passport.authenticate('local'), function (req, res) {
   res.send(token);
 });
 
-app.use('/person', passport.authenticate('bearer', { session: false }));
+app.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: 'openid profile email',
+  }),
+);
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/person');
+  },
+);
+
+// app.use(
+//   '/person',
+//   passport.authenticate('google', { scope: ['email', 'profile'] }),
+// );
+// app.use('/person', passport.authenticate('bearer', { session: false }));
 
 app.use('/person', personRouter);
 

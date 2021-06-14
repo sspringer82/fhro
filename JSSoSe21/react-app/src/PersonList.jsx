@@ -1,33 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import PersonItem from './PersonItem';
-
-const initialPersons = [
-  {
-    id: 1,
-    firstname: 'Klaus',
-    lastname: 'Müller',
-    hobbies: 'Lesen, Schreiben, Rechnen',
-  },
-  {
-    id: 2,
-    firstname: 'Petra',
-    lastname: 'Müller',
-    hobbies: 'Lesen, Schreiben, Rechnen',
-  },
-];
-
-async function getData() {
-  const request = await fetch('http://localhost:3001/person');
-  const data = await request.json();
-  return data;
-}
+import { PersonContext } from './PersonContext';
 
 const PersonList = () => {
-  const [persons, setPersons] = useState([]);
-
-  useEffect(() => {
-    getData().then((data) => setPersons(data));
-  }, []);
+  const [persons, setPersons] = useContext(PersonContext);
 
   async function handleDelete(id) {
     const response = await fetch('http://localhost:3001/Person/' + id, {

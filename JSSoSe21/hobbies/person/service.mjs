@@ -24,6 +24,15 @@ export default {
   },
 
   getAll() {
+    const data = new Array(500).fill({
+      id: 1,
+      firstname: 'Klaus',
+      lastname: 'Müller',
+      hobbies: 'Lesen, Schreiben, Rechnen',
+    });
+
+    return Promise.resolve(data);
+
     return new Promise((resolve, reject) => {
       this.db.all('SELECT * FROM Person', (error, data) => {
         if (error) {
