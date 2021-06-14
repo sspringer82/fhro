@@ -5,6 +5,7 @@ import passport from 'passport';
 import session from 'express-session';
 import { auth } from './auth.mjs';
 import jwt from 'jsonwebtoken';
+import expressJwT from 'express-jwt';
 import compression from 'compression';
 
 const app = express();
@@ -30,21 +31,10 @@ app.post('/login', passport.authenticate('local'), function (req, res) {
   res.send(token);
 });
 
-app.get(
-  '/auth/google',
-  passport.authenticate('google', {
-    scope: 'openid profile email',
-  }),
-);
-
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/person');
-  },
-);
+app.get(function (req, res) {
+  // Successful authentication, redirect home.
+  res.redirect('/person');
+});
 
 // app.use(
 //   '/person',
@@ -52,7 +42,11 @@ app.get(
 // );
 // app.use('/person', passport.authenticate('bearer', { session: false }));
 
-app.use('/person', personRouter);
+app.use(
+  '/person',
+  expressJwT({ secret: 'secret', algorithms: ['HS256'] }),
+  personRouter,
+);
 
 app.listen(8081, () => {
   console.log('Server is listening to http://localhost:8081');

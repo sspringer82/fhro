@@ -31,20 +31,6 @@ export function auth(app) {
     }),
   );
 
-  passport.use(
-    new GoogleStrategy(
-      {
-        clientID:
-          '305014099060-qargd23tppnpu78v146lhj36hq5566dn.apps.googleusercontent.com',
-        clientSecret: 'LDUliyRvk0pu4RvQYOFzlP_v',
-        callbackURL: 'http://localhost:8081/auth/google/callback',
-      },
-      function (accessToken, refreshToken, profile, cb) {
-        return cb(err, { id: 1, user: 'admin' });
-      },
-    ),
-  );
-
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
