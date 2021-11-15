@@ -1,0 +1,12 @@
+div {
+  border: 1px solid black;
+}
+
+.divButton#clickme {
+  display: inline-block;
+  background-color: hotpink !important;
+}
+
+div.divButton#clickme {
+  background-color: yellow !important;
+}
