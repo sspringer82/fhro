@@ -6,6 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="index.js"></script>
+    <style>
+      p {
+        background-color: green;
+      }
+      .inner {
+        background-color: red;
+      }
+      #bla {
+        background-color: blue;
+      }
+      .inner#bla {
+        background-color: yellow;
+      }
+      p.inner#bla {
+        background-color: hotpink;
+      }
+      div p#bla.inner {
+        background-color: orange;
+      }
+
+      #myDiv {
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        border: 5px solid black;
+        padding: 20px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <a href=""></a>
+    <img src="" />
+    <ul>
+      <li></li>
+    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="text" id="myInput" />
+    <input type="text" />
+    <div class="xxx">
+      <p class="inner" id="bla">bla <span id="blubb">blubb</span>bla</p>
+
+      <div id="myDiv">Hallo</div>
+    </div>
+    <script>
+      document.querySelector('#myInput').value = 'foo';
+      const li = document.createElement('li');
+      li.innerText = 'bar';
+      const ul = document.querySelector('ul');
+      ul.appendChild(li);
+
+      const ul2 = document.body.removeChild(ul);
+      document.querySelector('.xxx').appendChild(ul2);
+    </script>
+  </body>
 </html>
