@@ -6,14 +6,20 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "cross-env PORT=8282 nodemon index.js",
     "build": "echo 'Hallo Welt'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "left-pad": "^1.3.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
