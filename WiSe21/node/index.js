@@ -1,25 +1,17 @@
 import express from 'express';
-import User from './user.js';
-import morgan from 'morgan';
-import { createWriteStream } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
 import { config } from 'dotenv';
+
+import User from './user.js';
+import logger from './logger.js';
 
 const {
   parsed: { PORT },
 } = config();
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const app = express();
+logger(app);
 
-const accessLogStream = createWriteStream(join(__dirname, 'access.log'), {
-  flags: 'a',
-});
-
-app.use(morgan('combined', { stream: accessLogStream }));
+app.use(express.json());
 
 app.use((req, res, next) => {
   console.log(req.method, req.url);
@@ -39,6 +31,11 @@ app.get('/:name/:age', (request, response) => {
 // wird nie ausgeführt
 app.get('/klaus/42', (req, res) => {
   res.send('Hello klaus');
+});
+
+app.post('/user', (req, res) => {
+  console.log(req.body);
+  res.send(`Hello ${JSON.stringify(req.body)}`);
 });
 
 app.listen(PORT, () => console.log(`Listening to http://localhost:${PORT}`));
