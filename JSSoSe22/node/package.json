@@ -1,0 +1,16 @@
+{
+  "name": "jssose22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "is-odd": "^3.0.1"
+  }
+}
