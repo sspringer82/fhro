@@ -7,11 +7,11 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "WEB",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/JSSoSe21/hobbies/index.mjs",
+      "program": "${workspaceFolder}/JSSoSe22/node/web/index.js",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
