@@ -24,3 +24,7 @@ Einstieg in die Applikation
 * https://github.com/airbnb/javascript
 * https://google.github.io/styleguide/jsguide.html
 * https://standardjs.com/
+
+sebastian.springer@maibornwolff.de
+
+
