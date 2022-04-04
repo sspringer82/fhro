@@ -27,4 +27,9 @@ Einstieg in die Applikation
 
 sebastian.springer@maibornwolff.de
 
+# Die Termine
 
+* 11.04.2022 - initiale Projektpräsentation
+* 16.05.2022 - Projektbesprechung
+* 20.06.2022 - Projektbesprechung
+* 04.07.2022 - Finale Projektpräsentation
