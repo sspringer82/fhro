@@ -1,0 +1,1 @@
+export type FilterBody = Array<{ ingredient: string, amount: number }>;
