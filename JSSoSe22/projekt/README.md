@@ -17,12 +17,12 @@
 * Video Chat mit 3D modell (3)
 * Virtuelles bierpong mit promillemessung (2)
 * Bilderkennung von "Pilzen" (5)
-* Reversechefkoch mit Produktscanner (8)
+* **Reversechefkoch mit Produktscanner (8)**
 
 # Technologien
-* Frontend: Angular (2), React (9), Vue (3), Svelte (2)
-* Backend: plain Node, Express/Fastify (4), Nest (5)
-* Persistenz: Excel (0,5), Postgres (2), MariaDB (3), MongoDB (5), MySQL (4), 
+* Frontend: Angular (2), **React (9)**, Vue (3), Svelte (2)
+* Backend: plain Node, Express/Fastify (4), **Nest (5)**
+* Persistenz: Excel (0,5), Postgres (2), MariaDB (3), **MongoDB (5)**, MySQL (4), 
 * DBAL: ja
 * Auth: ja
 * Dockerisierung / Deployment: ja

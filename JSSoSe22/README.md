@@ -24,6 +24,7 @@ Einstieg in die Applikation
 * https://github.com/airbnb/javascript
 * https://google.github.io/styleguide/jsguide.html
 * https://standardjs.com/
+* https://overreacted.io/npm-audit-broken-by-design/
 
 sebastian.springer@maibornwolff.de
 
