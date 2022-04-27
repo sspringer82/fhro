@@ -1,0 +1,31 @@
+.info {
+  position: relative;
+  color: white;
+}
+
+.info .background {
+  position: absolute;
+  background-color: #032b22;
+  height: 2000px;
+  width: 2000px;
+  border-radius: 1000px;
+  margin-left: -1200px;
+  margin-top: -500px;
+  z-index: 100;
+}
+
+.info .header,
+.info section,
+.info h2,
+.info ul {
+  position: relative;
+  z-index: 200;
+  width: 200px;
+}
+
+.info .ingredientBubbles {
+  display: flex;
+  position: absolute;
+  left: 600px;
+  top: 100px;
+}

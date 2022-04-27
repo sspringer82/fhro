@@ -1,0 +1,18 @@
+.ingredientBubble {
+  position: relative;
+  background-color: white;
+  z-index: 300;
+  color: black;
+  width: 330px;
+  height: 480px;
+  border-radius: 165px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.ingredientBubble section {
+  text-align: center;
+}
