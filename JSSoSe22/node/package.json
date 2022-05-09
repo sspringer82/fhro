@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "is-odd": "^3.0.1"
+    "is-odd": "^3.0.1",
+    "pm2": "^5.2.0"
   }
 }
