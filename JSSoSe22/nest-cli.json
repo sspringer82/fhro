@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "fancy-number2": {
+      "type": "library",
+      "root": "libs/fancy-number2",
+      "entryFile": "index",
+      "sourceRoot": "libs/fancy-number2/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/fancy-number2/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

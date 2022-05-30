@@ -1,14 +1,15 @@
 import { Controller, Get, Post, UseGuards, Request } from '@nestjs/common';
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import User from 'obj/User';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   getHello(): string {
-    return this.appService.getHello();
+    const user = new User('Chantalle');
+    return user.greet();
   }
 }

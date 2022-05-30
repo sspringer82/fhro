@@ -8,18 +8,18 @@ function List() {
   //   return <div>Keine Daten vorhanden</div>;
   // }
 
-  useEffect(() => {
-    // setPeople((currentState) => {
-    //   return [...currentState, 'Klaus'];
-    // });
-    fetch('http://localhost:3002/people')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setPeople(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // setPeople((currentState) => {
+  //   //   return [...currentState, 'Klaus'];
+  //   // });
+  //   fetch('http://localhost:3002/people')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setPeople(data);
+  //     });
+  // }, []);
 
   const [people, setPeople] = useState<Person[]>(initialPeople);
 
