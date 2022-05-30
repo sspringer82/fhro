@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  backend:
+    build:
+      context: backend
+    ports:
+      - '8081:8080'
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+    restart: on-failure
