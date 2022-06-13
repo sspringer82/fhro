@@ -22,21 +22,32 @@ const Container = styled.div`
 `;
 
 type Props = {
-  onLoginSuccess: (token: string) => void;
+  error: boolean;
+  onLogin: (credentials: { username: string; password: string }) => void;
 };
 
-function Login({ onLoginSuccess }: Props): ReactElement {
-  const { doLogin, error, login, handleChange } = useLogin();
+function Login({ onLogin, error }: Props): ReactElement {
+  const { login, handleChange } = useLogin();
   return (
     <Container>
-      {error && <Alert severity="error">☝️🧐🤌 you failed!</Alert>}
-      <Form onSubmit={doLogin(onLoginSuccess)}>
+      {error && (
+        <Alert severity="error" data-testid="error-banner">
+          ☝️🧐🤌 you failed!
+        </Alert>
+      )}
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onLogin(login);
+        }}
+      >
         <Input
           label="Username: "
           value={login.username}
           onChange={handleChange}
           type="text"
           name="username"
+          testId="username"
         />
         <Input
           label="Password: "
@@ -44,8 +55,14 @@ function Login({ onLoginSuccess }: Props): ReactElement {
           onChange={handleChange}
           type="password"
           name="password"
+          testId="password"
         />
-        <Button variant="contained" type="submit" startIcon={<LoginIcon />}>
+        <Button
+          variant="contained"
+          type="submit"
+          startIcon={<LoginIcon />}
+          data-testid="submit-btn"
+        >
           anmelden
         </Button>
       </Form>

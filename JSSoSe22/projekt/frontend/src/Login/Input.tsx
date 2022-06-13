@@ -8,9 +8,17 @@ type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   name: string;
   type: 'text' | 'password';
+  testId: string;
 };
 
-function Input({ label, name, value, onChange, type }: Props): ReactElement {
+function Input({
+  label,
+  name,
+  value,
+  onChange,
+  type,
+  testId,
+}: Props): ReactElement {
   return (
     <TextField
       label={label}
@@ -19,6 +27,7 @@ function Input({ label, name, value, onChange, type }: Props): ReactElement {
       value={value}
       onChange={onChange}
       name={name}
+      inputProps={{ 'data-testid': testId }}
     />
   );
 }

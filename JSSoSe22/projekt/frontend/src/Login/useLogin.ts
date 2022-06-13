@@ -1,26 +1,15 @@
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
+
+type Credentials = {
+  username: string;
+  password: string;
+};
 
 function useLogin() {
-  const [login, setLogin] = useState({ username: '', password: '' });
-  const [error, setError] = useState(false);
-
-  function doLogin(onLoginSuccess: (token: string) => void) {
-    return async function (e: FormEvent) {
-      e.preventDefault();
-      const response = await fetch('http://localhost:3000/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify(login),
-      });
-      if (response.ok) {
-        const data = await response.text();
-        onLoginSuccess(data);
-        setError(false);
-      } else {
-        setError(true);
-      }
-    };
-  }
+  const [login, setLogin] = useState<Credentials>({
+    username: '',
+    password: '',
+  });
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setLogin((prevLogin) => ({
@@ -30,8 +19,6 @@ function useLogin() {
   }
 
   return {
-    doLogin,
-    error,
     login,
     handleChange,
   };
