@@ -1,0 +1,5 @@
+
+CREATE TABLE IF NOT EXISTS recipes (
+  ID int AUTO_INCREMENT PRIMARY_KEY,
+  title varchar(255),
+);

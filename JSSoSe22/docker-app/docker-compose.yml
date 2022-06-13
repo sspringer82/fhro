@@ -1,10 +1,25 @@
 version: '3.9'
 services:
+  mysql:
+    image: mysql:8.0-oracle
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-init.sql:/data/application/mysql-init.sql
+    command: --init-file ./mysql-init.sql
+    environment:
+      MYSQL_ROOT_USER: 'lulu'
+      MYSQL_ROOT_PASSWORD: 'secret'
+      MYSQL_DATABASE: 'reverse-chefkoch'
+      MYSQL_USER: 'lulu'
+      MYSQL_PASSWORD: 'secret'
   backend:
     build:
       context: backend
     ports:
       - '8081:8080'
+    depends_on:
+      - mysql
   frontend:
     build:
       context: frontend
