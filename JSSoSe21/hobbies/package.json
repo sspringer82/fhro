@@ -25,7 +25,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^5.0.3",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.1.6"
   },
