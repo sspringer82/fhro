@@ -32,7 +32,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@types/passport-jwt": "^3.0.6",
     "fancy-number": "file:../../fancy-number",
-    "mongoose": "^6.3.1",
+    "mongoose": "^6.4.6",
     "obj": "file:../obj",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
